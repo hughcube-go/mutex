@@ -58,6 +58,7 @@ func Test_Mutex_TryLockWithTimeout(t *testing.T) {
 		time.Sleep(2 * time.Second)
 	}()
 
+	time.Sleep(500 * time.Millisecond)
 	timestamp := time.Now().UnixNano()
 	a.False(mu.TryLockWithTimeout(1 * time.Second))
 	a.True(int64(time.Second) < (time.Now().UnixNano() - timestamp))
