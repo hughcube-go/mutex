@@ -22,9 +22,9 @@ type chanMutex struct {
 }
 
 // NewChanMutex returns ChanMutex lock
-func NewMutex() Mutex {
+func NewMutex(limit int) Mutex {
 	return &chanMutex{
-		lockChan: make(chan struct{}, 1),
+		lockChan: make(chan struct{}, limit),
 	}
 }
 
